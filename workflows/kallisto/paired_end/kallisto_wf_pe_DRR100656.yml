@@ -8,3 +8,6 @@ srafile:
   class: File
   path: /home/kyamada/RNA-seq/AJACSa6/DRR100656.sra
 index_name: kallisto.idx
+trim1: true
+paired: true
+fastqc: true

@@ -37,6 +37,18 @@ inputs:
     type: int
     'sbg:x': 265.4693908691406
     'sbg:y': 131.45208740234375
+  - id: trim1
+    type: boolean?
+    'sbg:x': 88.64588165283203
+    'sbg:y': 94.2743148803711
+  - id: paired
+    type: boolean?
+    'sbg:x': 80.44139862060547
+    'sbg:y': 242.58853149414062
+  - id: fastqc
+    type: boolean?
+    'sbg:x': 247.8632049560547
+    'sbg:y': 297.12957763671875
 outputs:
   - id: reverse
     outputSource:
@@ -137,6 +149,12 @@ steps:
         source: fasterq_dump/forward
       - id: read2
         source: fasterq_dump/reverse
+      - id: fastqc
+        source: fastqc
+      - id: trim1
+        source: trim1
+      - id: paired
+        source: paired
     out:
       - id: out1
       - id: out2

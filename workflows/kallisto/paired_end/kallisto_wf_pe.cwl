@@ -29,6 +29,18 @@ inputs:
     type: string
     'sbg:x': 323.92694091796875
     'sbg:y': -359.7203369140625
+  - id: trim1
+    type: boolean?
+    'sbg:x': 227.6208953857422
+    'sbg:y': 244.9164276123047
+  - id: paired
+    type: boolean?
+    'sbg:x': 175.72064208984375
+    'sbg:y': 370.4425964355469
+  - id: fastqc
+    type: boolean?
+    'sbg:x': 254.17449951171875
+    'sbg:y': 505.6246643066406
 outputs:
   - id: quant_output
     outputSource:
@@ -129,13 +141,19 @@ steps:
         source: fasterq_dump/forward
       - id: read2
         source: fasterq_dump/reverse
+      - id: fastqc
+        source: fastqc
+      - id: trim1
+        source: trim1
+      - id: paired
+        source: paired
     out:
       - id: out1
       - id: out2
     run: ../../../tools/trim_galore/trim_galore-pe/trim_galore-pe.cwl
     label: trim_galore
-    'sbg:x': 624.2334594726562
-    'sbg:y': 112.65971374511719
+    'sbg:x': 619.615966796875
+    'sbg:y': 86.7917709350586
 requirements: []
 $schemas:
   - 'https://schema.org/docs/schema_org_rdfa.html'

@@ -25,6 +25,10 @@ inputs:
     type: int?
     'sbg:x': 771.1320190429688
     'sbg:y': 502.8089599609375
+  - id: index_name
+    type: string
+    'sbg:x': 323.92694091796875
+    'sbg:y': -359.7203369140625
 outputs:
   - id: quant_output
     outputSource:
@@ -95,6 +99,8 @@ steps:
       - id: fasta_files
         source:
           - fasta_files
+      - id: index_name
+        source: index_name
     out:
       - id: index_file
     run: ../../../tools/kallisto/index/kallisto_index.cwl

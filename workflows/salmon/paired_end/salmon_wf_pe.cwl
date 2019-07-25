@@ -62,24 +62,24 @@ outputs:
     type: Directory
     'sbg:x': 1316.4119873046875
     'sbg:y': 157.33737182617188
-  - id: out2
-    outputSource:
-      - trim_galore/out2
-    type: File
-    'sbg:x': 796.6226196289062
-    'sbg:y': -285.2891540527344
-  - id: out1
-    outputSource:
-      - trim_galore/out1
-    type: File
-    'sbg:x': 735.7921752929688
-    'sbg:y': 61.57368087768555
   - id: salmon_index_1
     outputSource:
       - salmon_index/salmon_index
     type: Directory
     'sbg:x': 854.864501953125
     'sbg:y': 566.3367919921875
+  - id: out2
+    outputSource:
+      - trim_galore/out2
+    type: File
+    'sbg:x': 779.7973022460938
+    'sbg:y': -172.68836975097656
+  - id: out1
+    outputSource:
+      - trim_galore/out1
+    type: File
+    'sbg:x': 750.0292358398438
+    'sbg:y': 137.93507385253906
 steps:
   - id: salmon_index
     in:
@@ -109,19 +109,6 @@ steps:
       faster
     'sbg:x': 425.3819885253906
     'sbg:y': -108.58637237548828
-  - id: trim_galore
-    in:
-      - id: read1
-        source: fasterq_dump/forward
-      - id: read2
-        source: fasterq_dump/reverse
-    out:
-      - id: out1
-      - id: out2
-    run: ../../../tools/trim_galore/trim_galore-pe/trim_galore-pe.cwl
-    label: trim_galore
-    'sbg:x': 693.7347412109375
-    'sbg:y': -83.1021957397461
   - id: salmon_quant_pe
     in:
       - id: fq1
@@ -144,6 +131,19 @@ steps:
     label: 'Salmon quant: quantifying the samples'
     'sbg:x': 1000.611328125
     'sbg:y': 156.0433349609375
+  - id: trim_galore
+    in:
+      - id: read1
+        source: fasterq_dump/forward
+      - id: read2
+        source: fasterq_dump/reverse
+    out:
+      - id: out1
+      - id: out2
+    run: ../../../tools/trim_galore/trim_galore-pe/trim_galore-pe.cwl
+    label: trim_galore
+    'sbg:x': 724.143798828125
+    'sbg:y': 0.7432571649551392
 requirements: []
 $schemas:
   - 'https://schema.org/docs/schema_org_rdfa.html'

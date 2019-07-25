@@ -21,6 +21,10 @@ inputs:
     type: File
     'sbg:x': 125.33853912353516
     'sbg:y': 47.872798919677734
+  - id: nthreads
+    type: int?
+    'sbg:x': 771.1320190429688
+    'sbg:y': 502.8089599609375
 outputs:
   - id: quant_output
     outputSource:
@@ -32,20 +36,38 @@ outputs:
     outputSource:
       - fasterq_dump/reverse
     type: File?
-    'sbg:x': 465.04022216796875
-    'sbg:y': -68.56204986572266
+    'sbg:x': 424.1877746582031
+    'sbg:y': -89.6064682006836
   - id: forward
     outputSource:
       - fasterq_dump/forward
     type: File?
-    'sbg:x': 569.4714965820312
-    'sbg:y': -67.3616943359375
+    'sbg:x': 519.7852783203125
+    'sbg:y': -34.59029769897461
   - id: fastqFiles
     outputSource:
       - fasterq_dump/fastqFiles
     type: 'File[]'
     'sbg:x': 426.3917236328125
     'sbg:y': 173.80682373046875
+  - id: out2
+    outputSource:
+      - trim_galore/out2
+    type: File
+    'sbg:x': 778.5155029296875
+    'sbg:y': -58.24672317504883
+  - id: out1
+    outputSource:
+      - trim_galore/out1
+    type: File
+    'sbg:x': 769.032958984375
+    'sbg:y': 266.2669982910156
+  - id: index_file
+    outputSource:
+      - kallisto_index/index_file
+    type: File
+    'sbg:x': 678.4219970703125
+    'sbg:y': -270.0132751464844
 steps:
   - id: kallisto_quant
     in:
@@ -57,6 +79,8 @@ steps:
         source: trim_galore/out2
       - id: index_file
         source: kallisto_index/index_file
+      - id: nthreads
+        source: nthreads
       - id: out_dir_name
         source: out_dir_name
     out:
@@ -64,8 +88,8 @@ steps:
     run: >-
       https://raw.githubusercontent.com/pitagora-network/pitagora-cwl/master/tools/kallisto/quant/paired_end/kallisto_quant_pe.cwl
     label: 'kallisto quant: runs the quantification algorithm'
-    'sbg:x': 941.5993041992188
-    'sbg:y': 68.80682373046875
+    'sbg:x': 969.80859375
+    'sbg:y': 82.40431213378906
   - id: kallisto_index
     in:
       - id: fasta_files
@@ -91,8 +115,8 @@ steps:
     label: >-
       fasterq-dump: dump .sra format file to generate fastq file, way more
       faster
-    'sbg:x': 311.19317626953125
-    'sbg:y': 57
+    'sbg:x': 313.4007263183594
+    'sbg:y': 47.397125244140625
   - id: trim_galore
     in:
       - id: read1

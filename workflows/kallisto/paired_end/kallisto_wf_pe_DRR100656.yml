@@ -1,0 +1,9 @@
+bootstrap_samples: 100
+fasta_files:
+  - class: File
+    path: /home/kyamada/RNA-seq/AJACSa6/gencode.v31.transcripts.fa.gz
+nthreads: 12
+out_dir_name: DRR100656
+srafile:
+  class: File
+  path: /home/kyamada/RNA-seq/AJACSa6/DRR100656.sra

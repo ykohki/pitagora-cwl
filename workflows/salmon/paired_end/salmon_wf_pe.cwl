@@ -62,6 +62,24 @@ outputs:
     type: Directory
     'sbg:x': 1316.4119873046875
     'sbg:y': 157.33737182617188
+  - id: out2
+    outputSource:
+      - trim_galore/out2
+    type: File
+    'sbg:x': 796.6226196289062
+    'sbg:y': -285.2891540527344
+  - id: out1
+    outputSource:
+      - trim_galore/out1
+    type: File
+    'sbg:x': 735.7921752929688
+    'sbg:y': 61.57368087768555
+  - id: salmon_index_1
+    outputSource:
+      - salmon_index/salmon_index
+    type: Directory
+    'sbg:x': 854.864501953125
+    'sbg:y': 566.3367919921875
 steps:
   - id: salmon_index
     in:

@@ -64,14 +64,14 @@ outputs:
     outputSource:
       - trim_galore/out2
     type: File
-    'sbg:x': 844.5314331054688
-    'sbg:y': -127.3664779663086
+    'sbg:x': 818.2269897460938
+    'sbg:y': -107.63829803466797
   - id: out1
     outputSource:
       - trim_galore/out1
     type: File
-    'sbg:x': 710.8182373046875
-    'sbg:y': 318.7095947265625
+    'sbg:x': 821.5150146484375
+    'sbg:y': 283.63726806640625
 steps:
   - id: kallisto_quant
     in:
@@ -134,8 +134,8 @@ steps:
       - id: out2
     run: ../../../tools/trim_galore/trim_galore-pe/trim_galore-pe.cwl
     label: trim_galore
-    'sbg:x': 611.08154296875
-    'sbg:y': 102.79588317871094
+    'sbg:x': 624.2334594726562
+    'sbg:y': 112.65971374511719
 requirements: []
 $schemas:
   - 'https://schema.org/docs/schema_org_rdfa.html'

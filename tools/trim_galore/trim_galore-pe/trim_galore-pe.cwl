@@ -33,12 +33,13 @@ outputs:
   - id: out1
     type: File
     outputBinding:
-      glob: '*_1_val_1.fq.gz'
+      glob: $(inputs.read1+'_1_val_1.fq.gz')
   - id: out2
     type: File
     outputBinding:
-      glob: '*_2_val_2.fq.gz'
+      glob: $(inputs.read1+'_2_val_2.fq.gz')
 label: trim_galore
 requirements:
   - class: DockerRequirement
     dockerPull: miasteinberg/trim-galore
+  - class: InlineJavascriptRequirement

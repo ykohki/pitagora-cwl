@@ -72,14 +72,14 @@ outputs:
     outputSource:
       - trim_galore/out2
     type: File
-    'sbg:x': 779.7973022460938
-    'sbg:y': -172.68836975097656
+    'sbg:x': 959.7001953125
+    'sbg:y': -215.3990936279297
   - id: out1
     outputSource:
       - trim_galore/out1
     type: File
-    'sbg:x': 750.0292358398438
-    'sbg:y': 137.93507385253906
+    'sbg:x': 773.3261108398438
+    'sbg:y': 215.59092712402344
 steps:
   - id: salmon_index
     in:
@@ -142,8 +142,8 @@ steps:
       - id: out2
     run: ../../../tools/trim_galore/trim_galore-pe/trim_galore-pe.cwl
     label: trim_galore
-    'sbg:x': 724.143798828125
-    'sbg:y': 0.7432571649551392
+    'sbg:x': 733.2037963867188
+    'sbg:y': -3.1397430896759033
 requirements: []
 $schemas:
   - 'https://schema.org/docs/schema_org_rdfa.html'

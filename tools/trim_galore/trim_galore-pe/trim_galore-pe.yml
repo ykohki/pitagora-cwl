@@ -1,9 +1,9 @@
-paired: false  # type "boolean" (optional)
-trim1: false  # type "boolean" (optional)
-fastqc: false  # type "boolean" (optional)
+paired: true  # type "boolean" (optional)
+trim1: true  # type "boolean" (optional)
+fastqc: true  # type "boolean" (optional)
 read2:  # type "File"
     class: File
-    path: a/file/path
+    path: /Users/yamada/RNA-seq/AJACSa6/fastq/DRR100657.sra_2.fastq
 read1:  # type "File"
     class: File
-    path: a/file/path
+    path: /Users/yamada/RNA-seq/AJACSa6/fastq/DRR100657.sra_1.fastq

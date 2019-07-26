@@ -37,18 +37,18 @@ inputs:
     type: int
     'sbg:x': 265.4693908691406
     'sbg:y': 131.45208740234375
-  - id: trim1
-    type: boolean?
-    'sbg:x': 88.64588165283203
-    'sbg:y': 94.2743148803711
   - id: paired
     type: boolean?
-    'sbg:x': 80.44139862060547
-    'sbg:y': 242.58853149414062
+    'sbg:x': 111.96560668945312
+    'sbg:y': 275.1271057128906
   - id: fastqc
     type: boolean?
-    'sbg:x': 247.8632049560547
-    'sbg:y': 297.12957763671875
+    'sbg:x': 251.74615478515625
+    'sbg:y': 373.4911804199219
+  - id: trim1
+    type: boolean?
+    'sbg:x': 434.2374267578125
+    'sbg:y': -314.05609130859375
 outputs:
   - id: reverse
     outputSource:
@@ -80,18 +80,18 @@ outputs:
     type: Directory
     'sbg:x': 854.864501953125
     'sbg:y': 566.3367919921875
-  - id: out2
-    outputSource:
-      - trim_galore/out2
-    type: File
-    'sbg:x': 959.7001953125
-    'sbg:y': -215.3990936279297
   - id: out1
     outputSource:
       - trim_galore/out1
     type: File
-    'sbg:x': 773.3261108398438
-    'sbg:y': 215.59092712402344
+    'sbg:x': 876.8758544921875
+    'sbg:y': 329.1932678222656
+  - id: out2
+    outputSource:
+      - trim_galore/out2
+    type: File
+    'sbg:x': 792.7486572265625
+    'sbg:y': -53.908966064453125
 steps:
   - id: salmon_index
     in:
@@ -160,8 +160,8 @@ steps:
       - id: out2
     run: ../../../tools/trim_galore/trim_galore-pe/trim_galore-pe.cwl
     label: trim_galore
-    'sbg:x': 733.2037963867188
-    'sbg:y': -3.1397430896759033
+    'sbg:x': 724.942626953125
+    'sbg:y': 84.00498962402344
 requirements: []
 $schemas:
   - 'https://schema.org/docs/schema_org_rdfa.html'

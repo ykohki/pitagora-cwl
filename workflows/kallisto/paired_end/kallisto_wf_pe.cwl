@@ -7,8 +7,8 @@ $namespaces:
 inputs:
   - id: bootstrap_samples
     type: int?
-    'sbg:x': 390.2039489746094
-    'sbg:y': 345.4114990234375
+    'sbg:x': 598.8079833984375
+    'sbg:y': 326.895263671875
   - id: out_dir_name
     type: string?
     'sbg:x': 557.6082763671875
@@ -19,8 +19,8 @@ inputs:
     'sbg:y': -236.0035858154297
   - id: srafile
     type: File
-    'sbg:x': 125.33853912353516
-    'sbg:y': 47.872798919677734
+    'sbg:x': -95.8778076171875
+    'sbg:y': 44.586036682128906
   - id: nthreads
     type: int?
     'sbg:x': 771.1320190429688
@@ -29,18 +29,18 @@ inputs:
     type: string
     'sbg:x': 323.92694091796875
     'sbg:y': -359.7203369140625
-  - id: trim1
-    type: boolean?
-    'sbg:x': 227.6208953857422
-    'sbg:y': 244.9164276123047
   - id: paired
     type: boolean?
-    'sbg:x': 175.72064208984375
-    'sbg:y': 370.4425964355469
+    'sbg:x': 113.95063781738281
+    'sbg:y': 256.9856872558594
   - id: fastqc
     type: boolean?
-    'sbg:x': 254.17449951171875
-    'sbg:y': 505.6246643066406
+    'sbg:x': 338.44940185546875
+    'sbg:y': 352.3373107910156
+  - id: trim1
+    type: boolean?
+    'sbg:x': 118.77857208251953
+    'sbg:y': 430.7911682128906
 outputs:
   - id: quant_output
     outputSource:
@@ -52,20 +52,20 @@ outputs:
     outputSource:
       - fasterq_dump/reverse
     type: File?
-    'sbg:x': 424.1877746582031
-    'sbg:y': -89.6064682006836
+    'sbg:x': 282.7830505371094
+    'sbg:y': -101.06982421875
   - id: forward
     outputSource:
       - fasterq_dump/forward
     type: File?
-    'sbg:x': 519.7852783203125
-    'sbg:y': -34.59029769897461
+    'sbg:x': 410.37158203125
+    'sbg:y': -38.82793045043945
   - id: fastqFiles
     outputSource:
       - fasterq_dump/fastqFiles
     type: 'File[]'
-    'sbg:x': 426.3917236328125
-    'sbg:y': 173.80682373046875
+    'sbg:x': 374.0997619628906
+    'sbg:y': 64.37157440185547
   - id: index_file
     outputSource:
       - kallisto_index/index_file
@@ -76,14 +76,14 @@ outputs:
     outputSource:
       - trim_galore/out2
     type: File
-    'sbg:x': 818.2269897460938
-    'sbg:y': -107.63829803466797
+    'sbg:x': 835.7261962890625
+    'sbg:y': -179.94200134277344
   - id: out1
     outputSource:
       - trim_galore/out1
     type: File
-    'sbg:x': 821.5150146484375
-    'sbg:y': 283.63726806640625
+    'sbg:x': 944.3546142578125
+    'sbg:y': 439.24005126953125
 steps:
   - id: kallisto_quant
     in:
@@ -133,8 +133,8 @@ steps:
     label: >-
       fasterq-dump: dump .sra format file to generate fastq file, way more
       faster
-    'sbg:x': 313.4007263183594
-    'sbg:y': 47.397125244140625
+    'sbg:x': 160.92019653320312
+    'sbg:y': 38.55112075805664
   - id: trim_galore
     in:
       - id: read1
@@ -152,8 +152,8 @@ steps:
       - id: out2
     run: ../../../tools/trim_galore/trim_galore-pe/trim_galore-pe.cwl
     label: trim_galore
-    'sbg:x': 619.615966796875
-    'sbg:y': 86.7917709350586
+    'sbg:x': 559.8977661132812
+    'sbg:y': 143.93017578125
 requirements: []
 $schemas:
   - 'https://schema.org/docs/schema_org_rdfa.html'

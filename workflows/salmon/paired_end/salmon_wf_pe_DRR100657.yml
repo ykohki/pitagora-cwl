@@ -1,0 +1,15 @@
+index_name: gencode_v31
+lib_type: A
+nthreads: 12
+nthreads_1: 12
+quant_out_dirname: salmon_output_DRR100657
+srafile:
+  class: File
+  path: /home/kyamada/RNA-seq/AJACSa6/DRR100657.sra
+transcript_fasta:
+  class: File
+  path: /home/kyamada/RNA-seq/AJACSa6/gencode.v31.transcripts.fa.gz
+validateMappings: true
+trim1: true
+paired: true
+fastqc: true

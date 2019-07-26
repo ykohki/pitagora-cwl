@@ -128,11 +128,6 @@ inputs:
       prefix: '--seqBias'
     label: Perform sequence-specific bias correction.
     doc: Perform sequence-specific bias correction.
-  - id: libType
-    type: string?
-    inputBinding:
-      position: 0
-      prefix: '-l'
   - id: validateMappings
     type: boolean?
     inputBinding:

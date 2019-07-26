@@ -1,5 +1,5 @@
 index_name: gencode_v31
-libType: A
+lib_type: A
 nthreads: 12
 nthreads_1: 12
 quant_out_dirname: salmon_output_DRR100656

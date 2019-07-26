@@ -21,22 +21,6 @@ inputs:
     type: string
     'sbg:x': 445.0498962402344
     'sbg:y': 577.9353637695312
-  - id: libType
-    type: string?
-    'sbg:x': 416.8983154296875
-    'sbg:y': 275.1154479980469
-  - id: validateMappings
-    type: boolean?
-    'sbg:x': 1020.0255126953125
-    'sbg:y': -117.04666137695312
-  - id: quant_out_dirname
-    type: string
-    'sbg:x': 850.4768676757812
-    'sbg:y': -181.75987243652344
-  - id: nthreads
-    type: int
-    'sbg:x': 265.4693908691406
-    'sbg:y': 131.45208740234375
   - id: paired
     type: boolean?
     'sbg:x': 111.96560668945312
@@ -49,6 +33,22 @@ inputs:
     type: boolean?
     'sbg:x': 434.2374267578125
     'sbg:y': -314.05609130859375
+  - id: validateMappings
+    type: boolean?
+    'sbg:x': 1014.980712890625
+    'sbg:y': -122.70207977294922
+  - id: lib_type
+    type: string
+    'sbg:x': 1163.4071044921875
+    'sbg:y': 574.6221313476562
+  - id: nthreads
+    type: int
+    'sbg:x': 1005.178955078125
+    'sbg:y': 696.4437866210938
+  - id: quant_out_dirname
+    type: string
+    'sbg:x': 883.3572387695312
+    'sbg:y': -226.32052612304688
 outputs:
   - id: reverse
     outputSource:
@@ -68,12 +68,6 @@ outputs:
     type: 'File[]'
     'sbg:x': 530.904052734375
     'sbg:y': 49.095664978027344
-  - id: quant_results
-    outputSource:
-      - salmon_quant_pe/quant_results
-    type: Directory
-    'sbg:x': 1316.4119873046875
-    'sbg:y': 157.33737182617188
   - id: salmon_index_1
     outputSource:
       - salmon_index/salmon_index
@@ -92,6 +86,12 @@ outputs:
     type: File
     'sbg:x': 792.7486572265625
     'sbg:y': -53.908966064453125
+  - id: quant_results
+    outputSource:
+      - salmon_quant_pe/quant_results
+    type: Directory
+    'sbg:x': 1394.4482421875
+    'sbg:y': 202.15577697753906
 steps:
   - id: salmon_index
     in:
@@ -121,28 +121,6 @@ steps:
       faster
     'sbg:x': 425.3819885253906
     'sbg:y': -108.58637237548828
-  - id: salmon_quant_pe
-    in:
-      - id: fq1
-        source: trim_galore/out1
-      - id: fq2
-        source: trim_galore/out2
-      - id: index_dir
-        source: salmon_index/salmon_index
-      - id: nthreads
-        source: nthreads
-      - id: quant_out_dirname
-        source: quant_out_dirname
-      - id: libType
-        source: libType
-      - id: validateMappings
-        source: validateMappings
-    out:
-      - id: quant_results
-    run: ../../../tools/salmon/quant/paired_end/salmon_quant_pe.cwl
-    label: 'Salmon quant: quantifying the samples'
-    'sbg:x': 1000.611328125
-    'sbg:y': 156.0433349609375
   - id: trim_galore
     in:
       - id: read1
@@ -162,6 +140,28 @@ steps:
     label: trim_galore
     'sbg:x': 724.942626953125
     'sbg:y': 84.00498962402344
+  - id: salmon_quant_pe
+    in:
+      - id: fq1
+        source: trim_galore/out1
+      - id: fq2
+        source: trim_galore/out2
+      - id: index_dir
+        source: salmon_index/salmon_index
+      - id: lib_type
+        source: lib_type
+      - id: nthreads
+        source: nthreads
+      - id: quant_out_dirname
+        source: quant_out_dirname
+      - id: validateMappings
+        source: validateMappings
+    out:
+      - id: quant_results
+    run: ../../../tools/salmon/quant/paired_end/salmon_quant_pe.cwl
+    label: 'Salmon quant: quantifying the samples'
+    'sbg:x': 1090.2020263671875
+    'sbg:y': 202.59974670410156
 requirements: []
 $schemas:
   - 'https://schema.org/docs/schema_org_rdfa.html'
